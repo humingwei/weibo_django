@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <br>
+    <form action="/result/" method="POST">
+      {% csrf_token %}
+      您现在的状态:
+      <input type="text" name="msg">
+      <input type="submit" value="说!">
+    </form>
+
+    {% for s in statuses %}
+    {{ s.msg }} {{ s.time }}<br>
+    {% endfor %}
+
+    <br><br>
+    <a href="/history/">历史记录</a>
+{% endblock %}

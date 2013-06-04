@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+<table border="1" width="500">
+      {% for status in statuses %}
+      <tr>
+        <td>{{ status.user }}</td>
+        <td>{{ status.msg }}</td>
+        <td>
+          <a href="/status/?id={{status.id}}">
+            {{ status.time|date:"SHORT_DATE_FORMAT" }}
+          </a>
+        </td>
+      </tr>
+      {% endfor %}
+    </table>
+
+    <div class="pagination">
+      <span class="step-links">
+        {% if statuses.has_previous %}
+        <a href="?page={{ statuses.previous_page_number }}">previous</a>
+        {% endif %}
+
+        <span class="current">
+          Page {{ statuses.number }} of {{ statuses.paginator.num_pages }}.
+        </span>
+        {% if  statuses.has_next %}
+        <a href="?page={{  statuses.next_page_number }}">next</a>
+        {% endif %}
+      </span>
+    </div>
+
+    <br>
+    <a href="/say/">返回首页</a>
+
+{% endblock %}

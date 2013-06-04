@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>计算器</title>
+  </head>
+
+  <body>
+    {% if errormsg %}
+    <strong>{{ errormsg }}</strong>
+    {% else %}
+    hi, {{ username }}<br>
+    {{x}}+{{y}}={{z}}
+    {% endif %}
+
+    <a href="/hello/">返回首页</a>
+    <a href="/history">查看历史</a>
+  </body>
+</html>

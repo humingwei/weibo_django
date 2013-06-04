@@ -1,0 +1,3 @@
+age,population
+{% for user, v in result %}{{user}},{{v}}
+{% endfor %}
